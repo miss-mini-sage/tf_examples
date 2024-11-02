@@ -10,14 +10,25 @@ terraform {
       version = "~> 3.0.2"
     }
   }
+
+  #backend "azurerm" {
+  #  resource_group_name  = "tf_backend"                     # Can be passed via `-backend-config=`"resource_group_name=<resource group name>"` in the `init` command.
+  #  storage_account_name = "tf_backend"                     # Can be passed via `-backend-config=`"storage_account_name=<storage account name>"` in the `init` command.
+  #  container_name       = "tfstate"                        # Can be passed via `-backend-config=`"container_name=<container name>"` in the `init` command.
+  #  key                  = "terraform.tfstate"              # Can be passed via `-backend-config=`"key=<blob key name>"` in the `init` command.
+  #  use_azuread_auth     = true                             # Can also be set via `ARM_USE_AZUREAD` environment variable.
+  #}
 }
 
 provider "azurerm" {
   subscription_id = "06466ead-6512-4dc4-8cbe-9a599f17701e"
+  # client_id = "d5b6a0cd-399a-41e8-882e-179e25767c2d"
+  # client_secret = ""
+  storage_use_azuread = true
   features {
     key_vault {
       purge_soft_delete_on_destroy    = true
-      recover_soft_deleted_key_vaults = true
+      recover_soft_deleted_key_vaults = false
     }
   }
 }
