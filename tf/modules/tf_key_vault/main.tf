@@ -17,7 +17,9 @@ provider "azurerm" {
   }
 }
 
-resource "azurerm_key_vault" "azurerm_key_vault" {
+data "azurerm_client_config" "current" {}
+
+resource "azurerm_key_vault" "kv" {
   name                          = "kv-${var.base_name}-${var.environmnet}"
   resource_group_name           = "rg-${var.base_name}-${var.environmnet}"
   location                      = "${var.region}"

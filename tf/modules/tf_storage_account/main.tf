@@ -12,7 +12,7 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_storage_account" "azurerm_storage_account" {
+resource "azurerm_storage_account" "storage" {
   name                          = "st${var.base_name}${var.environmnet}"
   resource_group_name           = "rg-${var.base_name}-${var.environmnet}"
   location                      = "${var.region}"

@@ -21,14 +21,14 @@ provider "azuread" {
 }
 
 module "storage_account" {
-  source            = "./modules/tf_storage_account"
+  source            = "../modules/tf_storage_account"
   region            = "${var.region}"
   base_name         = "${var.base_name}"
   environmnet       = "${var.environmnet}"
 }
 
-module "storage_account" {
-  source            = "./modules/tf_key_vault"
+module "key_vault" {
+  source            = "../modules/tf_key_vault"
   region            = "${var.region}"
   base_name         = "${var.base_name}"
   environmnet       = "${var.environmnet}"

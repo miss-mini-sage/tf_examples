@@ -1,6 +1,6 @@
 variable "region" {
   description = "Region to deploy resources"
-  default = "eu-west"
+  default = "westeurope"
 }
 
 variable "base_name" {
