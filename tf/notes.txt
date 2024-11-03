@@ -1,0 +1,8 @@
+1. Configuration file and main commands
+2. List of changes
+3. Configurations causing resource recreation
+4. Looking at state file 
+5. Removal of resources
+6. State divergence and import
+7. Backend and client/secret use
+8. Pipeline example 

@@ -42,16 +42,6 @@ data "azuread_group" "s_contributors" {
   security_enabled = true
 }
 
-data "azuread_group" "kv_admins" {
-  display_name = "kv_admins"
-  security_enabled = true
-}
-
-data "azuread_group" "blob_owners" {
-  display_name = "blob_owners"
-  security_enabled = true
-}
-
 module "resource_group" {
   source            = "../modules/tf_resource_group"
   region            = "${var.region}"
@@ -98,4 +88,8 @@ resource "azurerm_role_assignment" "example" {
   scope                = module.key_vault.id
   role_definition_name = "Key Vault Secrets User"
   principal_id         = "f412a209-da23-46f7-a48f-6424704cf967"
+}
+
+resource "null_resource" "this" {
+ count = 2 > 1 ? 1 : 0
 }
