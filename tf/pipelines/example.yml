@@ -21,7 +21,7 @@ stages:
             -backend-config="key=${{ parameters.tfBlob }}" 
         terraform validate
         echo "Running Terraform plan..."
-        terraform plan -var-file ${{ parameters.tfvarsFile }}
+        terraform plan -var-file ${{ parameters.tfvarsFile }} -out ${{ parameters.planFile }}
       displayName: 'Terraform plan'
       workingDirectory: ${{ parameters.rootFolder }}
       env:
@@ -44,6 +44,7 @@ stages:
                 -backend-config="key=${{ parameters.tfBlob }}" 
               echo "Running Terraform apply..."
               terraform apply -var-file ${{ parameters.tfvarsFile }} -auto-approve
+              terraform apply ${{ parameters.planFile }}
             displayName: 'Terraform apply'
             workingDirectory: ${{ parameters.rootFolder }}
             env:
