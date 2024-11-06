@@ -1,3 +1,5 @@
+#exmaple pipeline
+
 pool:
   vmImage: ubuntu-latest
 
@@ -44,7 +46,7 @@ stages:
                 -backend-config="key=${{ parameters.tfBlob }}" 
               echo "Running Terraform apply..."
               terraform apply -var-file ${{ parameters.tfvarsFile }} -auto-approve
-              terraform apply ${{ parameters.planFile }}
+              # or terraform apply ${{ parameters.planFile }}
             displayName: 'Terraform apply'
             workingDirectory: ${{ parameters.rootFolder }}
             env:
