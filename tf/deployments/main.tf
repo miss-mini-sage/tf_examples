@@ -21,9 +21,9 @@ terraform {
 }
 
 provider "azurerm" {
-  subscription_id = "06466ead-6512-4dc4-8cbe-9a599f17701e"
-  # client_id = "d5b6a0cd-399a-41e8-882e-179e25767c2d"
-  # client_secret = ""
+  subscription_id = "ADD VALUE"
+  # client_id = "ADD VALUE"
+  # client_secret = "ADD VALUE"
   storage_use_azuread = true
   features {
     key_vault {
@@ -34,7 +34,7 @@ provider "azurerm" {
 }
 
 provider "azuread" {
-  tenant_id = "2ebc6bdf-9a09-41fd-88cd-5d3ac8221444"
+  tenant_id = "ADD VALUE"
 }
 
 data "azuread_group" "s_contributors" {
@@ -81,13 +81,13 @@ resource "azurerm_key_vault_secret" "storage_account_name" {
 
 resource "azuread_group_member" "miss_mini" {
   group_object_id  = data.azuread_group.s_contributors.object_id
-  member_object_id = "f412a209-da23-46f7-a48f-6424704cf967"
+  member_object_id = "ADD VALUE"
 }
 
 resource "azurerm_role_assignment" "example" {
   scope                = module.key_vault.id
   role_definition_name = "Key Vault Secrets User"
-  principal_id         = "f412a209-da23-46f7-a48f-6424704cf967"
+  principal_id         = "ADD VALUE"
 }
 
 resource "null_resource" "this" {
