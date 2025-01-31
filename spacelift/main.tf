@@ -12,7 +12,7 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "test-group" {
-  name = "test-group"
-  location = "West Europe"
+resource "azurerm_resource_group" "resource_group" {
+  name          = "rg-${var.base_name}-${var.environmnet}"
+  location      = "${var.region}"
 }
